@@ -166,6 +166,9 @@ round(3.5)
 ```
 
 ## 1.3 문자열
+* https://docs.python.org/ko/3/tutorial/introduction.html#strings
+
+
 작은따옴표('...') 나 큰따옴표("...")로 감싸는 형태, 따옴표를 이스케이핑 할 때는 \ 를 사용
 
 ```python
@@ -178,6 +181,8 @@ print(u"한글")
 ```
 
 ### 1.3.1 텍스트 시퀀스 형(str)
+* https://docs.python.org/ko/3/library/stdtypes.html#textseq
+
 파이썬의 텍스트 데이터는 str, 또는 문자열 (strings), 객체를 사용하여 처리
 
 문자열은 유니코드 코드 포인트의 불변 시퀀스 입니다. 문자열 리터럴은 다양한 방법으로 작성:
@@ -189,23 +194,23 @@ print(u"한글")
 * https://docs.python.org/ko/3/library/stdtypes.html#string-methods
 
 ### 1.3.3 포맷 문자열 리터럴
+* https://docs.python.org/ko/3/reference/lexical_analysis.html#f-strings
+
 포맷 문자열 리터럴(formatted string literal) 또는 f-문자열 (f-string) 은 'f' 나 'F' 를 앞에 붙인 문자열 리터럴입니다. 
 
 이 문자열은 치환 필드를 포함할 수 있는데, 중괄호 {} 로 구분되는 표현식입니다. 
 
 다른 문자열 리터럴이 항상 상숫값을 갖지만, 포맷 문자열 리터럴은 실행시간에 계산되는 표현식입니다.
 
-* https://docs.python.org/ko/3/reference/lexical_analysis.html#f-strings
-
 ### 1.3.4 출력 포맷
 * https://docs.python.org/ko/3/tutorial/inputoutput.html#fancier-output-formatting
 
 ### 1.3.5 포맷 문자열 문법
+* https://docs.python.org/ko/3/library/string.html#formatstrings
+
 str.format() 메서드와 Formatter 클래스는 포맷 문자열에 대해서 같은 문법을 공유합니다 (Formatter 의 경우, 서브 클래스는 그들 자신의 포맷 문자열 문법을 정의 할 수 있습니다). 
 
 문법은 포맷 문자열 리터럴 과 관련 있지만, 덜 정교하며, 특히 임의의 표현식을 지원하지 않습니다.
-
-* https://docs.python.org/ko/3/library/string.html#formatstrings
 
 ## 1.4 리스트(list)
 * https://docs.python.org/ko/3/tutorial/datastructures.html#more-on-lists
