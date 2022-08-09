@@ -208,11 +208,13 @@ str.format() 메서드와 Formatter 클래스는 포맷 문자열에 대해서 �
 * https://docs.python.org/ko/3/library/string.html#formatstrings
 
 ## 1.4 리스트(list)
+* https://docs.python.org/ko/3/tutorial/datastructures.html#more-on-lists
+
 대괄호 사이에 쉼표로 구분된 값(항목)들의 목록으로 표현될 수 있습니다. 
 
 리스트는 서로 다른 형의 항목들을 포함할 수 있지만, 항목들이 모두 같은 형인 경우가 많습니다.
 
-리스트는 가변 입니다. 즉 내용을 변경할 수 있습니다:
+리스트는 가변 입니다. 즉 내용을 변경할 수 있습니다.
 
 ※ 비어 있는 리스트는 a = list()로 생성
 
@@ -285,6 +287,9 @@ squares.extend([36, 49]) # squares += [36, 49]
 ```
 
 ## 1.5 튜플(tuple)
+* https://wikidocs.net/15
+* https://wikidocs.net/16042
+
 튜플(tuple)은 몇 가지 점을 제외하곤 리스트와 거의 비슷하며 리스트와 다른 점은 다음과 같다.
   - 리스트는 [ ]으로 둘러싸지만 튜플은 ( )으로 둘러싼다.
   - 리스트는 그 값의 생성, 삭제, 수정이 가능하지만 튜플은 그 값을 바꿀 수 없다.
@@ -296,6 +301,8 @@ a, b = ('python', 'life')
 ```
 
 ## 1.6 딕셔너리(dict)
+* https://wikidocs.net/16
+
 딕셔너리(dict)는 키(key)와 값(value)로 구성
 
 딕셔너리는 리스트나 튜플처럼 순차적으로(sequential) 해당 요솟값을 구하지 않고 Key를 통해 Value를 얻는다
@@ -308,6 +315,8 @@ key_values = {'one': 1, 'two': 2, 'three': 3}
 ```
 
 ## 1.7 집합(set)
+* https://wikidocs.net/1015
+* https://wikidocs.net/16044
 
 집합(set)은 파이썬 2.3부터 지원하기 시작한 자료형으로, 집합에 관련된 것을 쉽게 처리하기 위해 만든 자료형
 
@@ -325,7 +334,6 @@ fruits = {'apple', 'banana', 'orange'}
 print(fruits)
 
 'orange' in fruits
-
 ```
 
 # 2. 제어 흐름 도구
@@ -452,8 +460,9 @@ match color:
 
 함수의 기본 구조
 ```python
-def 함수명(매개변수):
-    수행할 문장1
+def 함수명(파라미터):
+    실행될 코드
+    return 결과값
 ```
 
 
