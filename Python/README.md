@@ -26,6 +26,7 @@ await               finally             nonlocal            yield
 
 
 # 1. 자료형
+* https://docs.python.org/ko/3/tutorial/introduction.html
 
 ```python
 import os
@@ -103,12 +104,12 @@ print(fractions.Fraction('25'))
 ```
 
 ### 1.2.4 타입 변환과 활용
-- https://blockdmask.tistory.com/432
-1. 정수 변환 - int()
-2. 실수 변환 - float()
-3. 문자열 변환 - str()
-4. 문자 변환 - chr()
-5. 불리언 변환 - bool()
+* https://blockdmask.tistory.com/432
+  * 정수 변환 - int()
+  * 실수 변환 - float()
+  * 문자열 변환 - str()
+  * 문자 변환 - chr()
+  * 불리언 변환 - bool()
 
 ```python
 str_value = '123.45'
@@ -131,7 +132,8 @@ print(random.randrange(1, 10)
 ```
 
 ### 1.2.6 External classes to handle Python numbers
-Python Mathmatics: https://www.techbeamers.com/python-numbers/#python-mathematics
+Python Mathmatics
+* https://www.techbeamers.com/python-numbers/#python-mathematics
 
 ```python
 import math
@@ -147,7 +149,8 @@ math.pi
 math.e
 ```
 
-Python funstions: https://docs.python.org/3/library/functions.html
+Python funstions
+* https://docs.python.org/3/library/functions.html
 
 ```python
 values = [1, 2, 3]
@@ -183,7 +186,7 @@ print(u"한글")
   - 삼중 따옴표: '''세 개의 작은따옴표''', """세 개의 큰따옴표"""
 
 ### 1.3.2 문자열 메서드
-https://docs.python.org/ko/3/library/stdtypes.html#string-methods
+* https://docs.python.org/ko/3/library/stdtypes.html#string-methods
 
 ### 1.3.3 포맷 문자열 리터럴
 포맷 문자열 리터럴(formatted string literal) 또는 f-문자열 (f-string) 은 'f' 나 'F' 를 앞에 붙인 문자열 리터럴입니다. 
@@ -192,18 +195,17 @@ https://docs.python.org/ko/3/library/stdtypes.html#string-methods
 
 다른 문자열 리터럴이 항상 상숫값을 갖지만, 포맷 문자열 리터럴은 실행시간에 계산되는 표현식입니다.
 
-https://docs.python.org/ko/3/reference/lexical_analysis.html#f-strings
+* https://docs.python.org/ko/3/reference/lexical_analysis.html#f-strings
 
 ### 1.3.4 출력 포맷
-https://docs.python.org/ko/3/tutorial/inputoutput.html#fancier-output-formatting
+* https://docs.python.org/ko/3/tutorial/inputoutput.html#fancier-output-formatting
 
 ### 1.3.5 포맷 문자열 문법
 str.format() 메서드와 Formatter 클래스는 포맷 문자열에 대해서 같은 문법을 공유합니다 (Formatter 의 경우, 서브 클래스는 그들 자신의 포맷 문자열 문법을 정의 할 수 있습니다). 
 
 문법은 포맷 문자열 리터럴 과 관련 있지만, 덜 정교하며, 특히 임의의 표현식을 지원하지 않습니다.
 
-https://docs.python.org/ko/3/library/string.html#formatstrings
-
+* https://docs.python.org/ko/3/library/string.html#formatstrings
 
 ## 1.4 리스트(list)
 대괄호 사이에 쉼표로 구분된 값(항목)들의 목록으로 표현될 수 있습니다. 
@@ -282,7 +284,6 @@ extend(x)에서 x에는 리스트만 올 수 있으며 원래의 리스트에 x 
 squares.extend([36, 49]) # squares += [36, 49]
 ```
 
-
 ## 1.5 튜플(tuple)
 튜플(tuple)은 몇 가지 점을 제외하곤 리스트와 거의 비슷하며 리스트와 다른 점은 다음과 같다.
   - 리스트는 [ ]으로 둘러싸지만 튜플은 ( )으로 둘러싼다.
@@ -330,7 +331,7 @@ print(fruits)
 # 2. 제어 흐름 도구
 
 ## 2.1 if
-https://docs.python.org/ko/3/tutorial/controlflow.html#if-statements
+* https://docs.python.org/ko/3/tutorial/controlflow.html#if-statements
 
 if 조건문에서 "조건문"이란 참과 거짓을 판단하는 문장
 
@@ -358,8 +359,8 @@ message = "success" if score >= 60 else "failure"
 ```
 
 ## 2.2 for + range
-https://docs.python.org/ko/3/tutorial/controlflow.html#for-statements
-https://docs.python.org/ko/3/tutorial/controlflow.html#the-range-function
+* https://docs.python.org/ko/3/tutorial/controlflow.html#for-statements
+* https://docs.python.org/ko/3/tutorial/controlflow.html#the-range-function
 
 for 변수 in 리스트(또는 튜플, 문자열):
     수행할 문장1
@@ -392,7 +393,7 @@ for (int i = 0; i < 10; i++) {
 ## 2.3 while
 while문은 조건문이 참인 동안에 while문 아래의 문장이 반복해서 수행
 
-https://docs.python.org/ko/3/reference/compound_stmts.html#while
+* https://docs.python.org/ko/3/reference/compound_stmts.html#while
 
 ```python
 hit = 0
@@ -415,16 +416,16 @@ while True:
 ```
 
 ## 2.4 루프의 break 와 continue 문, 그리고 else 절
-https://docs.python.org/ko/3/tutorial/controlflow.html#break-and-continue-statements-and-else-clauses-on-loops
-https://docs.python.org/ko/3/tutorial/datastructures.html#looping-techniques
+* https://docs.python.org/ko/3/tutorial/controlflow.html#break-and-continue-statements-and-else-clauses-on-loops
+* https://docs.python.org/ko/3/tutorial/datastructures.html#looping-techniques
 
 ## 2.5 pass
-https://docs.python.org/ko/3/tutorial/controlflow.html#pass-statements
+* https://docs.python.org/ko/3/tutorial/controlflow.html#pass-statements
 
 ## 2.6 match statements & enum
 Python 3.10 버전부터 지원
 
-https://docs.python.org/ko/3/tutorial/controlflow.html#match-statements
+* https://docs.python.org/ko/3/tutorial/controlflow.html#match-statements
 
 ```python
 from enum import Enum
@@ -447,9 +448,7 @@ match color:
 
 
 # 3. 함수(function)
-
-https://docs.python.org/ko/3/tutorial/controlflow.html#defining-functions
-https://wikidocs.net/24
+* https://docs.python.org/ko/3/tutorial/controlflow.html#defining-functions
 
 함수의 기본 구조
 ```python
@@ -494,8 +493,7 @@ sum(3,4)
 
 
 # 4. 모듈과 패키지
-https://docs.python.org/ko/3/tutorial/modules.html
-
+* https://docs.python.org/ko/3/tutorial/modules.html
 
 from 모듈이름 import 모듈함수
 
@@ -513,7 +511,7 @@ from os import path
 
 
 # 5. 파일 입력과 출력
-
+* https://docs.python.org/ko/3/tutorial/inputoutput.html#reading-and-writing-files
 
 ## 5.1 경로 다루기
 
@@ -578,10 +576,10 @@ with open(filename, 'w', encoding='utf-8') as file:
 
 
 # 6. 오류와 예외
-https://docs.python.org/ko/3/tutorial/errors.html
+* https://docs.python.org/ko/3/tutorial/errors.html
 
 # 7. 클래스
-https://docs.python.org/ko/3/tutorial/classes.html
+* https://docs.python.org/ko/3/tutorial/classes.html
 
 *  __init__ : 클래스 초기화
 *  self : 클래스 자신, self를 사용해야 인스턴스에서 함수를 사용할 수 있음
