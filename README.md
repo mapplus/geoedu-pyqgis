@@ -10,6 +10,7 @@
   - Python
     - https://docs.python.org/ko/3/tutorial/index.html
     - https://docs.python.org/ko/3/
+    - https://wikidocs.net/book/1553
     - https://wikidocs.net/book/1
     - https://wikidocs.net/book/2
     
