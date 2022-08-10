@@ -1,30 +1,5 @@
 # Learning Python
 
-# Python 시작하기
-
-<pre>
-C:\Users\mapplus>python
-Python 3.9.9 (tags/v3.9.9:ccb0e6a, Nov 15 2021, 18:08:50) [MSC v.1929 64 bit (AMD64)] on win32
-Type "help", "copyright", "credits" or "license" for more information.
->>> help('keywords')
-
-Here is a list of the Python keywords.  Enter any keyword to get more help.
-
-False               break               for                 not
-None                class               from                or
-True                continue            global              pass
-__peg_parser__      def                 if                  raise
-and                 del                 import              return
-as                  elif                in                  try
-assert              else                is                  while
-async               except              lambda              with
-await               finally             nonlocal            yield
-
->>> import keyword
->>> keyword.kwlist
-</pre>
-
-
 # 1. 자료형
 * https://docs.python.org/ko/3/tutorial/introduction.html
 
@@ -237,57 +212,41 @@ else:
     
 ```
 
-### 1.4.1 del 함수 사용해 리스트 요소 삭제하기
+* list 함수 사용하기
+
 ```python
+#del 함수 사용해 리스트 요소 삭제하기
 del squares[4]
-```
 
-### 1.4.2 리스트에 요소 추가(append)
-```python
+#리스트에 요소 추가(append)
 squares.append(25)
-```
 
-### 1.4.3 리스트에 요소 삽입(insert)
-```python
+#리스트에 요소 삽입(insert)
 squares.insert(5, 36)
-```
 
-### 1.4.4 리스트 정렬(sort)
-```python
+#리스트 정렬(sort)
 squares.sort()
-```
 
-### 1.4.5 리스트 뒤집기(reverse)
-```python
+#리스트 뒤집기(reverse)
 squares.reverse()
-```
 
-### 1.4.6 위치 반환(index)
-```python
+#위치 반환(index)
 squares.index(3)
-```
 
-### 1.4.7 리스트 요소 제거(remove)
-remove(x)는 리스트에서 첫 번째로 나오는 x를 삭제
-```python
+#리스트 요소 제거(remove)
+#remove(x)는 리스트에서 첫 번째로 나오는 x를 삭제
 squares.remove(25)
-```
 
-### 1.4.8 리스트 요소 끄집어내기(pop)
-pop()은 리스트의 맨 마지막 요소를 돌려주고 그 요소는 삭제
-```python
+#리스트 요소 끄집어내기(pop)
+#pop()은 리스트의 맨 마지막 요소를 돌려주고 그 요소는 삭제
 squares.pop()
-```
 
-### 1.4.9 리스트에 포함된 요소 x의 개수 세기(count)
-```python
+#리스트에 포함된 요소 x의 개수 세기(count)
 squares.count(4)
-```
 
-### 1.4.10 리스트 확장(extend)
-extend(x)에서 x에는 리스트만 올 수 있으며 원래의 리스트에 x 리스트를 더하기
+#리스트 확장(extend)
+#extend(x)에서 x에는 리스트만 올 수 있으며 원래의 리스트에 x 리스트를 더하기
 
-```python
 squares.extend([36, 49]) # squares += [36, 49]
 ```
 
