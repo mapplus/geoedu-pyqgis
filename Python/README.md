@@ -470,18 +470,19 @@ sum(3,4)
 
 from 모듈이름 import 모듈함수
 
-* PyQt
+```python
+# PyQt
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 
-* QGIS
+# QGIS
 from qgis.core import *
 from qgis.gui import *
 
-* 경로 등 내장 함수
+# 경로 등 내장 함수
 from glob import glob
 from os import path
-
+```
 
 # 5. 파일 입력과 출력
 * https://docs.python.org/ko/3/tutorial/inputoutput.html#reading-and-writing-files
