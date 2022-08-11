@@ -103,7 +103,7 @@ str_value = str(float_value)
 ```python
 import random
 
-print(random.randrange(1, 10)
+print(random.randrange(1, 10))
 ```
 
 ### 1.2.6 External classes to handle Python numbers
@@ -115,7 +115,7 @@ import math
 
 math.ceil(3.4)
 math.floor(3.4)
-math.cmp(3, 4)
+math.cmp(3, 4) # Python Ver 2
 math.exp(4)
 math.log(4)
 math.log10(4)
@@ -151,7 +151,7 @@ say = "Python is very easy."
 print(say[2])
 print(say[:6])
 
-print("한글") #Ver2에서는 깨짐
+print("한글") # Ver2에서는 깨짐
 print(u"한글")
 ```
 
@@ -231,7 +231,8 @@ squares.sort()
 squares.reverse()
 
 #위치 반환(index)
-squares.index(3)
+squares.index(4)
+squares.index(3) # Exception
 
 #리스트 요소 제거(remove)
 #remove(x)는 리스트에서 첫 번째로 나오는 x를 삭제
@@ -276,6 +277,8 @@ a, b = ('python', 'life')
 ```python
 key_values = {} # = dict()
 key_values = {'one': 1, 'two': 2, 'three': 3}
+key_values['four'] = 4
+
 ```
 
 ## 1.7 집합(set)
@@ -436,11 +439,11 @@ def add(a, b):
 
 def add_many(*args):
     result = 0 
-        for i in args: 
-            result = result + i 
-        return result 
+    for i in args: 
+        result = result + i 
+    return result 
 
-     result = add_many(1,2,3)
+result = add_many(1,2,3)
 
 def add_and_mul(a,b): 
     return a+b, a*b
@@ -453,7 +456,8 @@ result1, result2 = add_and_mul(3, 4)
 함수의 초기값 설정
 
 ```python
-def say_myself(name, old, man=True): 
+def say_myself(name, old, man=True):
+    print(f'{name} : {old} : {man}') 
 ```
 
 인수를 이용한 표현식(lambda): lambda = 인수1, 인수2, ...
