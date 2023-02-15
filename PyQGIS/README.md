@@ -58,7 +58,7 @@ print(name)
 print(ext)
 ```
 
-## QT QFileInfo
+## Qt QFileInfo
   - http://qt-project.org/doc/qt-5/qfileinfo.html
 
 ```python
@@ -227,9 +227,6 @@ feature = next(vlayer.getFeatures(request))
 vlayer.select(feature.id())
 
 print("Feature ID = %d: " % feature.id())
-print(feature.id(), feature[4], feature["EMD_NM"], feature.EMD_NM)
-
-# feature.EMD_NM << not use..
 print(feature.id(), feature[4], feature["EMD_NM"])
 
 # ZoomTo Feature Extent
@@ -242,10 +239,10 @@ vlayer.removeSelection()
 
 request = QgsFeatureRequest().setFilterFid(5)
 
-# Geometry는 받아오지 않기
+# Geometry는 가져오지 않기
 request.setFlags(QgsFeatureRequest.NoGeometry)
 
-# 속성은 0, 1, 2 번째 속성만 가져오기
+# 0, 1, 2 번째 속성만 가져오기
 request.setSubsetOfAttributes([0, 1, 2])
 
 feature = next(vlayer.getFeatures(request))
@@ -255,7 +252,7 @@ print(feature.geometry(), feature[4])
 ### 7.4.3 QgsFeatureRequest rectangle filter
 vlayer.removeSelection()
 
-# rectangle 영역에 있는 Feature들의 Extent를 모두 하나로 Union
+# rectangle 영역에 있는 Feature들의 Extent를 모두 하나로 합치기
 unioned_geomery = QgsGeometry()
 extent = QgsRectangle(194052.547, 447030.808, 197991.199,448635.444)
 request = QgsFeatureRequest().setFilterRect(extent)
@@ -293,7 +290,7 @@ caps = provider.capabilities()
 
 # 1. add fields
 if caps & QgsVectorDataProvider.AddAttributes:
-    res = provider.addAttributes( [ stringfield, intfield, doublefield ] )
+    res = provider.addAttributes([stringfield, intfield, doublefield])
     vlayer.reload()
 else:
     print("cannot add new fields")
@@ -308,7 +305,7 @@ print(provider.fieldNameIndex("mydouble"))
 
 if caps & QgsVectorDataProvider.DeleteAttributes:
     # 출력된 index를 적는다.. 10, 11, 12
-    res = provider.deleteAttributes( [ 10, 11, 12 ] )
+    res = provider.deleteAttributes([10, 11, 12])
     vlayer.reload()
 else:
     print("cannot delete fields")
@@ -318,8 +315,8 @@ else:
 ## 8.1 Geometry 생성 및 다루기
 ```python
 point_geometry = QgsGeometry.fromPointXY(QgsPointXY(10,10))
-line_geometry = QgsGeometry.fromPolylineXY( [ QgsPointXY(4,4), QgsPointXY(7,7) ] )
-polygeon_geometry = QgsGeometry.fromPolygonXY( [ [ QgsPointXY(1,1), QgsPointXY(2,2), QgsPointXY(2,1) ] ] )
+line_geometry = QgsGeometry.fromPolylineXY([QgsPointXY(4,4), QgsPointXY(7,7)])
+polygeon_geometry = QgsGeometry.fromPolygonXY([[QgsPointXY(1,1), QgsPointXY(2,2), QgsPointXY(2,1)]])
 
 wkt_point = QgsGeometry.fromWkt("POINT(10 10)")
 wkt_line = QgsGeometry.fromWkt("LINESTRING(4 4, 7 7)")
@@ -369,7 +366,7 @@ centroid = QgsPointXY(198326.53051, 447706.97545)
 buffered_geom = QgsGeometry.fromPointXY(centroid).buffer(5000, 8)  # segments = 8
 
 feature = QgsFeature(provider.fields())
-feature.setGeometry( buffered_geom )
+feature.setGeometry(buffered_geom)
 feature.setAttribute(0, centroid.x())
 feature.setAttribute(1, centroid.y())
 
@@ -501,12 +498,12 @@ print(xfield, yfield)
 if xfield == -1:
     # add field
     xc = QgsField("xc", QVariant.Double)
-    res = provider.addAttributes( [ xc ] )
+    res = provider.addAttributes([xc])
 
 if yfield == -1:
     # add field
     yc = QgsField("yc", QVariant.Double)
-    res = provider.addAttributes( [ yc ] )
+    res = provider.addAttributes([yc])
 
 # reload attributes
 xfield = provider.fieldNameIndex("xc")
@@ -544,7 +541,7 @@ field_index = provider.fieldNameIndex(value_field)
 
 if field_index == -1:
     # add field
-    res = provider.addAttributes( [ QgsField(value_field, QVariant.Double) ] )
+    res = provider.addAttributes([QgsField(value_field, QVariant.Double)])
 
     # reload attributes
     field_index = provider.fieldNameIndex(value_field)
@@ -615,7 +612,7 @@ for fid in stores_fids:
     store_geometry = store_feature.geometry()
     if admin_prepared.intersects(store_geometry.constGet()):
         intersection_count += 1
-        print("Feature ID = %d: " % store_feature.id(), store_feature.geometry().centroid().asPoint())
+        print("Feature ID = %d: " % store_feature.id(), store_geometry.centroid().asPoint())
 
 print(intersection_count)
 ```
