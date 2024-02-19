@@ -329,7 +329,7 @@ polygeon_geometry.asPolygon()   # QgsPolygon
 # area(), length(), distance()
 
 print(line_geometry.distance(point_geometry))
-printpolygeon_geometry.area())
+print(polygeon_geometry.area())
 ```
 
 ## 8.2 좌표체계 변환
