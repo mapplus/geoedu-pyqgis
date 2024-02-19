@@ -328,13 +328,13 @@ polygeon_geometry.asPolygon()   # QgsPolygon
 
 # area(), length(), distance()
 
-geomLine.distance(point_geometry)
-polygeon_geometry.area()
+print(line_geometry.distance(point_geometry))
+printpolygeon_geometry.area())
 ```
 
 ## 8.2 좌표체계 변환
 ```python
-source_crs = QgsCoordinateReferenceSystem('ESPG:4326')    # WGS84
+source_crs = QgsCoordinateReferenceSystem('EPSG:4326')   # WGS84
 target_crs = QgsCoordinateReferenceSystem('EPSG:5174')   # Korean 1985 Modified Centeral belt
 
 # QgsCoordinateTransform(source: QgsCoordinateReferenceSystem, destination: QgsCoordinateReferenceSystem, sourceDatumTransformId: int, destinationDatumTransformId: int)
