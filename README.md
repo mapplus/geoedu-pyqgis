@@ -5,6 +5,10 @@
 
 ## PyQGIS
   - [PyQGIS](PyQGIS/README.md)
+  - [Python](Python/README.md)
+
+## 한국지도학회 2024년 춘계학술대회 워크숍
+  - [워크숍](KCA-Workshop/README.md)
 
 ## 참고사이트
   - Python
