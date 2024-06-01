@@ -157,7 +157,7 @@ class GraduatedColorRendererAlgorithm(QgsProcessingAlgorithm):
 
         # create renderer
         renderer = QgsGraduatedSymbolRenderer()
-        renderer.setSourceSymbol(symbol)
+        renderer.setSourceSymbol(template_symbol)
         renderer.setLabelFormat(labelFormat) # deprecated
         renderer.setClassAttribute(field)
         renderer.setClassificationMethod(method)
