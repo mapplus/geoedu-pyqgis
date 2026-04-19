@@ -1,599 +1,96 @@
-# Learning Python
+# Python Practice Guide for QGIS
 
-# 1. 자료형
-* https://docs.python.org/ko/3/tutorial/introduction.html
+이 폴더는 `QGIS Python Console`에서 진행하는 Python 기초 실습 자료입니다.  
+과정의 최종 목표는 Python 문법을 익힌 뒤 PyQGIS 기초로 자연스럽게 넘어가고, 이후에는 스크립팅과 플러그인 개발 과정까지 확장하는 것입니다.
 
-```python
-import os
-import sys
-from copy import copy
-```
+## 교육 범위
 
-## 1.1 불(bool)
-참, 거짓을 표현하는 불(bool)
+- 1단계: Python 기초
+- 2단계: PyQGIS 기초
+- 이후 확장: QGIS 스크립팅, Processing 자동화, 플러그인 개발
 
-```python
-is_valid = False
-type(is_valid)
-```
+## 실습 환경
 
-## 1.2 숫자
-정수, 실수, 8진수, 16진수
+- QGIS 내장 Python 3.12
+- QGIS Python Console 사용
+- 일부 예제는 `.py` 스크립트 파일로 저장해서 다시 실행하는 방식까지 함께 연습
 
-### 1.2.1 int & float
-int: 정수   
-float: 부동소수점 15자리까지 정확도
+## 교육 목표
 
-```python
-2 + 2
+- Python의 기본 문법을 QGIS Python Console에서 직접 실행하며 익힌다.
+- 변수, 조건문, 반복문, 함수, 자료구조를 사용해 작은 문제를 해결한다.
+- 파일 처리와 예외 처리까지 포함한 기본 스크립팅 습관을 익힌다.
+- 이후 PyQGIS에서 레이어, 피처, 속성, 지오메트리를 다룰 준비를 마친다.
 
-50 - 5*6
+## 실습 진행 방식
 
-(50 - 5*6) / 4
+- 학생들과 함께 한 줄씩 실행하면서 결과를 확인합니다.
+- 예제는 먼저 따라 치고, 바로 짧은 변형 과제를 풀어봅니다.
+- QGIS Python Console에서 바로 실행 가능한 예제를 우선 사용합니다.
+- `input()` 기반 예제보다 변수 대입과 식 평가 중심으로 진행합니다.
 
-17 / 3  # float을 반환하는 나눗셈
+## 먼저 같이 시작해 보기
 
-17 // 3  # 몫
+이미지 순서는 `자료형`부터 시작하지만, 본격적인 문법으로 들어가기 전에 아래 내용은 먼저 같이 실행해 보겠습니다.
 
-17 % 3  # 나머지
+- 변수에 값을 넣고 출력해 보기
+- 식을 실행했을 때 어떤 결과가 나오는지 확인해 보기
+- 들여쓰기가 Python 문법에서 왜 중요한지 감 잡기
 
-5 * 3 + 2  # floored quotient * divisor + remainder
-
-5 ** 2  # 5 squared
- 
-2 ** 7  # 2 to the power of 7 
-
-octal = 0o177
-
-type(octal)
-
-hexadecimal = 0x8ff
-
-a = 3   # int
-b = 4   # int
-print(a / b) # Ver2에서는 소수점까지 표현 안함
-print(float(a) / b)
-
-```
-
-### 1.2.2 complex 복소수
-파이썬은 Decimal 이나 Fraction 등의 다른 형의 숫자들도 지원합니다.    
-파이썬은 복소수 에 대한 지원도 내장하고 있는데, 허수부를 가리키는데 j 나 J 접미사를 사용합니다 (예를 들어 3+5j).
-
-### 1.2.3 Decimal & Franction
-decimal: 10진 모듈, 사용자 정의 유효숫자 지정
-fractions: 분수(분자와 분모) 넘버를 다루기 위한 모듈
+시작 예제:
 
 ```python
-import decimal
-float_value = 0.278
+message = "Hello, QGIS Python Console"
+name = "GeoEdu"
 
-print(decimal.Decimal(float_value))
-print(decimal.Decimal(str(float_value)))
-
-import fractions
-
-float_value = 2.5
-print(fractions.Fraction(float_value))
-print(fractions.Fraction('25'))
+print(message)
+print(f"{name} 실습을 시작합니다.")
 ```
 
-### 1.2.4 타입 변환과 활용
-* https://blockdmask.tistory.com/432
-  * 정수 변환 - int()
-  * 실수 변환 - float()
-  * 문자열 변환 - str()
-  * 문자 변환 - chr()
-  * 불리언 변환 - bool()
+## 실습 목차
+
+| 순서 | 주제 | 파일 | 실습 초점 |
+| --- | --- | --- | --- |
+| 0 | 시작하기 | [00_start_here.md](./00_start_here.md) | 콘솔 사용법, 실행 방식, 첫 코드 |
+| 1 | 자료형 | [01_data_types.md](./01_data_types.md) | 숫자, 문자열, bool, 형변환 |
+| 2 | 제어 흐름 도구 | [02_control_flow.md](./02_control_flow.md) | if, for, while, break |
+| 3 | 함수 | [03_functions.md](./03_functions.md) | def, return, 기본값, 재사용 |
+| 4 | 자료구조 | [04_data_structures.md](./04_data_structures.md) | list, tuple, dict, set |
+| 5 | 모듈과 패키지 | [05_modules_packages.md](./05_modules_packages.md) | import, 표준 모듈, `qgis.core` 연결 |
+| 6 | 파일 입출력 | [06_file_io.md](./06_file_io.md) | 텍스트 저장, 경로, CSV |
+| 7 | 오류와 예외 | [07_errors_exceptions.md](./07_errors_exceptions.md) | try, except, 디버깅 습관 |
+| 8 | 클래스 | [08_classes.md](./08_classes.md) | 객체 개념, 속성, 메서드 |
+| 9 | 표준 라이브러리 | [09_standard_library.md](./09_standard_library.md) | `math`, `datetime`, `pathlib`, `json` |
+| 10 | 미니 프로젝트 | [10_mini_project.md](./10_mini_project.md) | Python 기초를 묶어 작은 실습 완성 |
+
+## Python 기초에서 PyQGIS로 이어지는 흐름
+
+Python 기초를 익힌 뒤에는 아래 주제를 PyQGIS 기초 과정으로 연결할 수 있습니다.
+
+- 변수와 자료형 -> 좌표, 속성값, 파일 경로 다루기
+- 제어문과 반복문 -> 레이어와 피처 순회하기
+- 함수 -> 자주 쓰는 작업을 재사용 가능한 도구로 만들기
+- 딕셔너리와 리스트 -> 속성 매핑, 설정값 관리
+- 파일 입출력 -> 로그 저장, 결과물 내보내기
+- 예외 처리 -> 레이어 누락, 경로 오류, 필드 없음 대응
+
+## 학생들에게 안내할 실습 규칙
+
+- 예제를 복사만 하지 말고 직접 입력합니다.
+- 실행 전 결과를 먼저 예상해 봅니다.
+- 에러가 나면 바로 지우지 말고 메시지를 읽습니다.
+- 한 번에 길게 쓰지 않고 작은 단위로 실행합니다.
+- 콘솔에서 실행한 코드는 필요한 경우 `.py` 파일로 옮겨 정리합니다.
+
+## 강사 메모
+
+이 폴더의 문서는 학생 배포용 실습 자료입니다.  
+Python 기초를 충분히 익힌 뒤 PyQGIS 기초 2 과정에서는 실제 QGIS 객체를 다루는 예제로 이어가면 됩니다.
+
+추천 연결 순서:
+
+1. Python 기초 문법 실습
+2. QGIS Python Console에서 `iface`, `QgsProject`, `QgsVectorLayer` 확인
+3. 레이어 목록 조회, 피처 순회, 필드 접근
+4. 간단한 자동화 스크립트 작성
 
-```python
-str_value = '123.45'
-type(str_value) # 자료형 확인
-
-int_value = int(str_value) # ValueError
-
-int_value = int(eval(str_value))
-float_value = float(str_value)
-str_value = str(float_value)
-```
-
-### 1.2.5 random
-난수 발생
-
-```python
-import random
-
-print(random.randrange(1, 10))
-```
-
-### 1.2.6 External classes to handle Python numbers
-Python Mathmatics
-* https://www.techbeamers.com/python-numbers/#python-mathematics
-
-```python
-import math
-
-math.ceil(3.4)
-math.floor(3.4)
-math.cmp(3, 4) # Python Ver 2
-math.exp(4)
-math.log(4)
-math.log10(4)
-math.sqrt(4)
-math.pi
-math.e
-```
-
-Python funstions
-* https://docs.python.org/3/library/functions.html
-
-```python
-values = [1, 2, 3]
-
-sum(values)
-min(values)
-min(1, 2, 3)
-max(values)
-abs(-12.34)
-pow(2, 4)
-round(2.5)
-round(3.5)
-```
-
-## 1.3 문자열
-* https://docs.python.org/ko/3/tutorial/introduction.html#strings
-
-
-작은따옴표('...') 나 큰따옴표("...")로 감싸는 형태, 따옴표를 이스케이핑 할 때는 \ 를 사용
-
-```python
-say = "Python is very easy."
-print(say[2])
-print(say[:6])
-
-print("한글") # Ver2에서는 깨짐
-print(u"한글")
-```
-
-### 1.3.1 텍스트 시퀀스 형(str)
-* https://docs.python.org/ko/3/library/stdtypes.html#textseq
-
-파이썬의 텍스트 데이터는 str, 또는 문자열 (strings), 객체를 사용하여 처리
-
-문자열은 유니코드 코드 포인트의 불변 시퀀스 입니다. 문자열 리터럴은 다양한 방법으로 작성:
-  - 작은따옴표: '"큰" 따옴표를 담을 수 있습니다'
-  - Double quotes: "allows embedded 'single' quotes"
-  - 삼중 따옴표: '''세 개의 작은따옴표''', """세 개의 큰따옴표"""
-
-### 1.3.2 문자열 메서드
-* https://docs.python.org/ko/3/library/stdtypes.html#string-methods
-
-### 1.3.3 포맷 문자열 리터럴
-* https://docs.python.org/ko/3/reference/lexical_analysis.html#f-strings
-
-포맷 문자열 리터럴(formatted string literal) 또는 f-문자열 (f-string) 은 'f' 나 'F' 를 앞에 붙인 문자열 리터럴입니다. 
-
-이 문자열은 치환 필드를 포함할 수 있는데, 중괄호 {} 로 구분되는 표현식입니다. 
-
-다른 문자열 리터럴이 항상 상숫값을 갖지만, 포맷 문자열 리터럴은 실행시간에 계산되는 표현식입니다.
-
-### 1.3.4 출력 포맷
-* https://docs.python.org/ko/3/tutorial/inputoutput.html#fancier-output-formatting
-
-### 1.3.5 포맷 문자열 문법
-* https://docs.python.org/ko/3/library/string.html#formatstrings
-
-str.format() 메서드와 Formatter 클래스는 포맷 문자열에 대해서 같은 문법을 공유합니다 (Formatter 의 경우, 서브 클래스는 그들 자신의 포맷 문자열 문법을 정의 할 수 있습니다). 
-
-문법은 포맷 문자열 리터럴 과 관련 있지만, 덜 정교하며, 특히 임의의 표현식을 지원하지 않습니다.
-
-## 1.4 리스트(list)
-* https://docs.python.org/ko/3/tutorial/datastructures.html#more-on-lists
-
-대괄호 사이에 쉼표로 구분된 값(항목)들의 목록으로 표현될 수 있습니다. 
-
-리스트는 서로 다른 형의 항목들을 포함할 수 있지만, 항목들이 모두 같은 형인 경우가 많습니다.
-
-리스트는 가변 입니다. 즉 내용을 변경할 수 있습니다.
-
-※ 비어 있는 리스트는 a = list()로 생성
-
-```python
-squares = []  # = list()
-squares = [1, 4, 9, 16, 25]
-
-list = [1,3,5,7,9]
-print(len(list))
-
-if 3 in list:
-    print('exist')
-else:
-    print('not exist')
-    
-```
-
-* list 함수 사용하기
-
-```python
-#del 함수 사용해 리스트 요소 삭제하기
-del squares[4]
-
-#리스트에 요소 추가(append)
-squares.append(25)
-
-#리스트에 요소 삽입(insert)
-squares.insert(5, 36)
-
-#리스트 정렬(sort)
-squares.sort()
-
-#리스트 뒤집기(reverse)
-squares.reverse()
-
-#위치 반환(index)
-squares.index(4)
-squares.index(3) # Exception
-
-#리스트 요소 제거(remove)
-#remove(x)는 리스트에서 첫 번째로 나오는 x를 삭제
-squares.remove(25)
-
-#리스트 요소 끄집어내기(pop)
-#pop()은 리스트의 맨 마지막 요소를 돌려주고 그 요소는 삭제
-squares.pop()
-
-#리스트에 포함된 요소 x의 개수 세기(count)
-squares.count(4)
-
-#리스트 확장(extend)
-#extend(x)에서 x에는 리스트만 올 수 있으며 원래의 리스트에 x 리스트를 더하기
-
-squares.extend([36, 49]) # squares += [36, 49]
-```
-
-## 1.5 튜플(tuple)
-* https://wikidocs.net/15
-* https://wikidocs.net/16042
-
-튜플(tuple)은 몇 가지 점을 제외하곤 리스트와 거의 비슷하며 리스트와 다른 점은 다음과 같다.
-  - 리스트는 [ ]으로 둘러싸지만 튜플은 ( )으로 둘러싼다.
-  - 리스트는 그 값의 생성, 삭제, 수정이 가능하지만 튜플은 그 값을 바꿀 수 없다.
-  - 튜블은 괄호를 생략해도 됨
-
-```python
-(a, b) = 'python', 'life'
-a, b = ('python', 'life')
-```
-
-## 1.6 딕셔너리(dict)
-* https://wikidocs.net/16
-
-딕셔너리(dict)는 키(key)와 값(value)로 구성
-
-딕셔너리는 리스트나 튜플처럼 순차적으로(sequential) 해당 요솟값을 구하지 않고 Key를 통해 Value를 얻는다
-
-※ 비어 있는 딕셔너리는 a = dict()로 생성
-
-```python
-key_values = {} # = dict()
-key_values = {'one': 1, 'two': 2, 'three': 3}
-key_values['four'] = 4
-
-```
-
-## 1.7 집합(set)
-* https://wikidocs.net/1015
-* https://wikidocs.net/16044
-
-집합(set)은 파이썬 2.3부터 지원하기 시작한 자료형으로, 집합에 관련된 것을 쉽게 처리하기 위해 만든 자료형
-
-집합은 중복되는 요소가 없는 순서 없는 컬렉션입니다. 기본적인 용도는 멤버십 검사와 중복 엔트리 제거입니다. 
-
-집합 객체는 합집합, 교집합, 차집합, 대칭 차집합과 같은 수학적인 연산들도 지원합니다.
-
-집합을 만들 때는 중괄호나 set() 함수를 사용할 수 있습니다. 주의사항: 빈 집합을 만들려면 set() 을 사용해야 합니다. {} 가 아닙니다; 
-
-
-```
-fruits = set(['apple', 'banana', 'orange'])
-fruits = {'apple', 'banana', 'orange'}
-
-print(fruits)
-
-'orange' in fruits
-```
-
-# 2. 제어 흐름 도구
-
-## 2.1 if
-* https://docs.python.org/ko/3/tutorial/controlflow.html#if-statements
-
-if 조건문에서 "조건문"이란 참과 거짓을 판단하는 문장
-
-비교연산자(<, >, ==, !=, >=, <=) 및 조합(and, or, not)
-
-```python
-score = 40
-
-if score >= 60:
-    message = "success"
-else:
-    message = "failure"
-```
-
-### 2.1.1 리스트, 튜플, 문자열 포함
-```python
-squares = [1, 4, 9, 16, 25]
-4 in squares
-```
-
-### 2.1.2 조건부 표현식(conditional expression)
-
-```python
-message = "success" if score >= 60 else "failure"
-```
-
-## 2.2 for + range
-* https://docs.python.org/ko/3/tutorial/controlflow.html#for-statements
-* https://docs.python.org/ko/3/tutorial/controlflow.html#the-range-function
-
-for 변수 in 리스트(또는 튜플, 문자열):
-    수행할 문장1
-
-```python
-test_list = ['one', 'two', 'three'] 
-for i in test_list: 
-    print(i)
-
-add = 0 
-for i in range(1, 11): 
-    add = add + i 
-
-print(add)
-
-for i in range(10):
-    print(i)
-
-for i in range(10, -1, -1):
-    print(i)
-```
-
-Java for loop
-```java
-for (int i = 0; i < 10; i++) {
-    System.out.println(i);
-}
-```
-
-## 2.3 while
-while문은 조건문이 참인 동안에 while문 아래의 문장이 반복해서 수행
-
-* https://docs.python.org/ko/3/reference/compound_stmts.html#while
-
-```python
-hit = 0
-while hit < 10:
-    hit = hit + 1
-    print(f"{hit}")
-```
-
-```python
-hit = 0
-while True:
-    hit = hit + 1
-    if hit == 10:
-        print("last 10")
-        break
-    elif hit == 1:
-        print("first 1")
-    else:
-        print(hit)
-```
-
-## 2.4 루프의 break 와 continue 문, 그리고 else 절
-* https://docs.python.org/ko/3/tutorial/controlflow.html#break-and-continue-statements-and-else-clauses-on-loops
-* https://docs.python.org/ko/3/tutorial/datastructures.html#looping-techniques
-
-## 2.5 pass
-* https://docs.python.org/ko/3/tutorial/controlflow.html#pass-statements
-
-## 2.6 match statements & enum
-Python 3.10 버전부터 지원
-
-* https://docs.python.org/ko/3/tutorial/controlflow.html#match-statements
-
-```python
-from enum import Enum
-
-class Color(Enum):
-    RED = 'red'
-    GREEN = 'green'
-    BLUE = 'blue'
-
-color = Color(input("Enter your choice of 'red', 'blue' or 'green': "))
-
-match color:
-    case Color.RED:
-        print("I see red!")
-    case Color.GREEN:
-        print("Grass is green")
-    case Color.BLUE:
-        print("I'm feeling the blues :(")
-```
-
-
-# 3. 함수(function)
-* https://docs.python.org/ko/3/tutorial/controlflow.html#defining-functions
-
-함수의 기본 구조
-```python
-def 함수명(파라미터):
-    실행될 코드
-    return 결과값
-```
-
-
-```python
-def add(a, b): 
-    return a + b
-
-def add_many(*args):
-    result = 0 
-    for i in args: 
-        result = result + i 
-    return result 
-
-result = add_many(1,2,3)
-
-def add_and_mul(a,b): 
-    return a+b, a*b
-
-result = add_and_mul(3,4)
-
-result1, result2 = add_and_mul(3, 4)
-```
-
-함수의 초기값 설정
-
-```python
-def say_myself(name, old, man=True):
-    print(f'{name} : {old} : {man}') 
-```
-
-인수를 이용한 표현식(lambda): lambda = 인수1, 인수2, ...
-
-```python
-sum = lambda a, b: a+b
-
-sum(3,4)
-```
-
-
-# 4. 모듈과 패키지
-* https://docs.python.org/ko/3/tutorial/modules.html
-
-from 모듈이름 import 모듈함수
-
-```python
-# PyQt
-from PyQt5.QtCore import *
-from PyQt5.QtGui import *
-
-# QGIS
-from qgis.core import *
-from qgis.gui import *
-
-# 경로 등 내장 함수
-from glob import glob
-from os import path
-```
-
-# 5. 파일 입력과 출력
-* https://docs.python.org/ko/3/tutorial/inputoutput.html#reading-and-writing-files
-
-## 5.1 경로 다루기
-
-```python
-import os
-import sys
-
-filename = 'C:\OpenData\QGIS\장난감도서관.csv' # 텍스트파일
-
-os.path.exists(filename)
-
-target_folder = os.path.dirname(filename)
-
-shp_name = os.path.splitext(os.path.basename(filename))[0]
-shapefile_line = os.path.join(target_folder, f'{shp_name}_line.shp')
-
-
-import glob
-glob.glob(r'C:\OpenData\QGIS\*..shp')
-```
-
-## 5.2 파일 읽기
-r, w, a  지정하지 않으면 r
-
-```python
-filename = 'C:\OpenData\QGIS\장난감도서관.csv'
-file = open(filename, 'r', encoding='utf-8')
-while True:
-    line = file.readline()
-    if not line:
-        break
-    print(line)
-
-file.close()
-
-
-with open(filename, 'r', encoding='utf-8') as file:
-    while True:
-        line = file.readline()
-        if not line:
-            break
-        print(line)
-
-
-with open(filename, 'r', encoding='utf-8') as file:
-    # 파일의 모든 줄을 읽어서 각각의 줄을 요소로 갖는 리스트로
-    lines    = file.readlines()
-    print(lines)
-    
-    # 파일의 내용 전체를 문자열로
-    contents = file.read() 
-    print(contents)
-```
-
-## 5.2 파일 쓰기
-
-```python
-filename = 'C:\OpenData\QGIS\장난감도서관.txt'
-with open(filename, 'w', encoding='utf-8') as file:
-    file.write('텍스트파일 쓰기')
-```
-
-
-# 6. 오류와 예외
-* https://docs.python.org/ko/3/tutorial/errors.html
-
-# 7. 클래스
-* https://docs.python.org/ko/3/tutorial/classes.html
-
-*  __init__ : 클래스 초기화
-*  self : 클래스 자신, self를 사용해야 인스턴스에서 함수를 사용할 수 있음
-*  @staticmethod : static 함수를 선언할때 사용되는 키워드
-
-```python
-class Person:
-    def __init__(self, name):
-        self.name = name
-        
-    def greet(self):
-        print('Hello ' + self.name)
-    
-    @staticmethod
-    def static_greet(name):
-        print('Hello ' + name)
-
-# Person 인스턴스 생성
-person = Person('QGIS')
-person.greet()
-
-# Person Class의 staticmethod 호출
-Person.static_greet('Quantum GIS')
-
-del person # delete class
-```
-
-# 8. 표준 라이브러리
-https://docs.python.org/ko/3/tutorial/stdlib.html
-https://docs.python.org/ko/3/tutorial/stdlib2.html
-
-
-# 참고사이트
-  - Python
-    - https://docs.python.org/ko/3/tutorial/index.html
-    - https://docs.python.org/ko/3/
-    - https://wikidocs.net/book/1553
-    - https://wikidocs.net/book/1
-    - https://wikidocs.net/book/2
