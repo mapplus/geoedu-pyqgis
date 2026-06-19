@@ -1,0 +1,32 @@
+저는 QGIS 3.x Processing 툴박스에서 사용할 PyQGIS 3 기반의 사용자 정의 알고리즘을 작성하려고 합니다. 
+알고리즘의 목표는 입력 벡터 피처를 중심으로 쉼표로 구분된 여러 거리에 대한 다중 링 버퍼를 생성하는 것입니다. 
+클래스 이름은 MultipleRingBufferAlgorithm으로 하고, 모든 코드는 4개의 공백으로 들여쓰고 상세한 주석을 포함해 주세요.
+
+1. 알고리즘 기본 정보 및 그룹 설정
+  - 고유 이름 (name): multiple_ring_buffer
+  - 표시 이름 (displayName): Multiple Ring Buffer
+  - 그룹 이름 (group): MangoSystem Scripts
+  - 그룹 ID (groupId): mangoscripts
+  - 도움말 (shortHelpString): 생성된 버퍼 거리가 포함된 'rind_dist' 필드가 출력에 포함됨을 명시합니다.
+
+2. 입력 및 출력 파라미터 정의 (initAlgorithm)
+알고리즘은 다음 4가지 파라미터를 정의해야 합니다.
+  - INPUT (입력 벡터 레이어): QgsProcessingParameterFeatureSource (벡터 타입만 허용)
+  - DISTANCES (거리 값): QgsProcessingParameterString.
+    - 역할: 쉼표로 구분된 문자열 (예: '500, 1000, 1500').
+    - 기본값: '500, 1000, 1500'
+  - OUTSIDE (링 옵션): QgsProcessingParameterBoolean.
+    - 역할: True로 설정되면 인접 버퍼 간의 차이(difference())를 계산하여 링 모양의 폴리곤만 생성합니다.
+    - 기본값: True (선택 사항)
+  - OUTPUT (출력 싱크): QgsProcessingParameterFeatureSink (폴리곤 벡터 타입 지정)
+
+3. 핵심 처리 로직 (processAlgorithm)
+처리 로직은 다음과 같은 순서와 세부 규칙을 따라야 합니다.
+  - 입력 유효성 검사: 입력 레이어 (INPUT)가 유효한지 확인하고, DISTANCES 문자열을 파싱하여 유효한 float 값 리스트를 얻습니다. 값이 없거나 숫자가 아닌 경우 QgsProcessingException을 발생시켜야 합니다.
+  - 출력 스키마 정의: 입력 레이어의 모든 속성을 복사하고, 버퍼 거리를 저장할 rind_dist 필드 (QVariant.Double, 길이 10, 정밀도 4)를 출력 필드에 추가합니다.
+  - 피처 반복: 입력 레이어의 각 피처를 반복하면서 버퍼를 생성합니다.
+  - 버퍼 및 링 생성:
+    - 각 거리 값 (rind_distance)에 대해 geometry.buffer(rind_distance, 24)를 호출하여 버퍼를 생성합니다.
+    - OUTSIDE 옵션이 **True**이고 첫 번째 버퍼가 아닌 경우, 현재 버퍼 지오메트리에서 직전 버퍼 지오메트리를 뺀 **차이(difference())**를 계산하여 링(Ring) 모양의 폴리곤을 생성합니다.
+  - 피처 출력: 각 단계에서 생성된 지오메트리를 가진 새로운 피처에 입력 피처의 속성과 rind_distance 값을 속성으로 설정하여 QgsFeatureSink에 추가합니다.
+  - 진행률 보고: 반복문 내에서 feedback.setProgress()를 사용하여 진행률을 업데이트합니다.

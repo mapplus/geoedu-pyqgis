@@ -1,0 +1,29 @@
+너는 QGIS3.44+ 환경에서 동작하는 Processing Toolbox 플러그인 스크립트를 작성하는 GIS 개발자야. 
+QGIS3.44 이상에서 사용할 수 있는 Processing Toolbox용 Python 스크립트를 만들어줘.
+
+목표:
+선택한 폴리곤 레이어와 숫자 속성 필드를 사용해 단계구분도(Graduated Color Renderer)를 자동으로 적용하는 도구를 만들고 싶어.
+
+요구 기능:
+1) 입력 파라미터
+   - 폴리곤 레이어 선택
+   - 숫자 필드 선택
+   - 분류 방법 선택 (예: Equal Interval, Quantile, Jenks)
+   - 급간 수 (예: 기본 5)
+   - 색상표 선택 (QGIS 기본 색상표 사용)
+
+2) 처리 내용
+   - 사용자가 지정한 설정에 맞게 분류하고 색상을 적용
+   - 레이어 스타일 변경 후 지도에 반영
+
+3) 클래스 기반 QGIS ProcessingAlgorithm 형식으로 만들어줘.
+   - name(), displayName(), group(), initAlgorithm(), processAlgorithm() 필요
+   - processing.run() 대신 QgsGraduatedSymbolRenderer를 사용해 직접 스타일 설정
+
+4) 출력
+   - 입력 레이어에 적용된 스타일이 바로 보이도록 해줘
+   - 실행 후 메시지 출력
+
+5) 주석은 초보자도 이해할 수 있게 친절히 넣어줘.
+
+완성된 코드만 출력해줘.

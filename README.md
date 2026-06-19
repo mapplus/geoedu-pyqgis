@@ -13,10 +13,13 @@
 ## FOSS4G Korea 2025 워크숍
   - [모델 설계자와 GPT를 이용한 QGIS 공간처리 툴박스 확장하기](FOSS4GKorea2025/README.md)
 
-## 서울틉결시
+## 서울특별시 매력일자리 공간정보사업 개발자교육
   - [서울시 교육자료](Seoul)
   - [PyQGIS](PyQGIS/README.md)
-  - [Python](Python/README.md)
+  - [Python](Python/README.md) 
+
+## 2026 지리학대회
+  - [AI로 만드는 QGIS 분석 도구](2026KoreanGeographyConference)
   
 ## 참고사이트
   - Python
